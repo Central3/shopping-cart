@@ -23,11 +23,20 @@ function App() {
     }
   }
 
+  function updateCart(id, newCount) {
+    setCart((prevCart) => {
+      if (newCount < 1) return prevCart.filter((item) => item.id !== id);
+      return prevCart.map((item) => {
+        return item.id === id ? { ...item, count: newCount } : item;
+      });
+    });
+  }
+
   return (
     <>
       <Navbar />
       <main id="content-display">
-        <Outlet context={{ data, handleAddCart, cart }} />
+        <Outlet context={{ data, handleAddCart, cart, updateCart }} />
       </main>
     </>
   );
