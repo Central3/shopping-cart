@@ -8,11 +8,9 @@ import ErrorPage from "./ErrorPage.jsx";
 const routes = [
   {
     path: "/",
-    loader: async () => {
-      return { data: await shoppingItems() };
-    },
+    loader: shoppingItems,
     element: <App />,
-    errorElement: <ErrorPage />,
+    ErrorBoundary: ErrorPage,
     children: [
       { index: true, element: <Home /> },
       { path: "home", element: <Home /> },
