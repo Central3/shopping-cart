@@ -53,6 +53,30 @@ body {
   border-bottom: 1px solid #000;
 }
 
+.spacer {
+  flex: 1;
+}
+
+.nav-cart {
+  position: relative;
+}
+
+.counter-badge {
+  background-color: var(--color-accent);
+  position: absolute;
+  padding: 4px;
+  border-radius: 50%;
+  color: #fff;
+  top: -45%;
+  left: 50%;
+  height: 18px;
+  min-width: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #content-display {
   min-height: 100vh;
   margin-top: 16px;
@@ -65,6 +89,7 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   margin: 8px 0;
+  justify-content: space-evenly;
 }
 
 .card {
@@ -75,6 +100,18 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   gap: 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 24px;
+}
+
+.image-deck {
+  display: flex;
+  justify-content: center;
+}
+
+.image-deck img {
+  height: 200px;
+  object-fit: contain;
 }
 
 .item-title {
@@ -91,6 +128,16 @@ body {
   cursor: pointer;
   color: #fffcf9;
   background-color: #ff6978;
+}
+
+.added {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #03c03c;
+  color: #fff;
+  display: inline-block;
+  border-radius: 24px;
+  font-size: 1.1rem;
 }
 
 .cart {
