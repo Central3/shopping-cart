@@ -4,21 +4,29 @@ import CartItem from "./CartItem";
 function Cart() {
   const { cart } = useOutletContext();
 
-  if (cart.length < 1) return "Cart is empty";
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.count * item.price,
+    0
+  );
 
-  function cartTotal() {
-    return cart.reduce((total, item) => total + item.count * item.price, 0);
-  }
+  const totalItems = cart.reduce((total, item) => total + item.count, 0);
 
   return (
     <>
-      <h1>Cart</h1>
-      <div className="cart-items">
-        {cart.map((item) => {
-          return <CartItem key={item.id} item={item} />;
-        })}
-        <p>Total: {cartTotal()}</p>
-      </div>
+        <section className="cart">
+          <div className="cart-items">
+            {cart.map((item) => {
+              return <CartItem key={item.id} item={item} />;
+            })}
+          </div>
+          <div className="checkout">
+            <p>
+              Subtotal ({totalItems} {cart.length > 1 ? "items" : "item"}): $
+              {totalPrice.toFixed(2)}
+            </p>
+            <button className="checkout-btn">Checkout</button>
+          </div>
+        </section>
     </>
   );
 }

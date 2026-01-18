@@ -22,6 +22,8 @@ svg {
 
 body {
   font-family: "Roboto", sans-serif;
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
 }
 
 :root {
@@ -91,13 +93,17 @@ body {
   background-color: #ff6978;
 }
 
-#item-count {
-  display: block;
-  width: 25%;
+.cart {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .cart-items {
   margin-top: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  flex-grow: 3;
+  border-radius: 24px;
 }
 
 .cart-item {
@@ -108,12 +114,38 @@ body {
   padding: 1.25rem;
 }
 
+.cart-item:last-child {
+  border-bottom: none;
+}
+
 .cart-item img {
   width: 180px;
   height: 180px;
-  aspect-ratio: auto 180 / 180;
+  object-fit: contain;
+}
+
 }
 
 .item-price {
   margin-left: auto;
 }
+
+.checkout {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 1.5rem;
+  padding: 1.25rem;
+  margin-top: 8px;
+  flex-grow: 1;
+  border-radius: 24px;
+}
+
+.checkout-btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 24px;
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
