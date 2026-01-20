@@ -171,6 +171,79 @@ body {
   object-fit: contain;
 }
 
+.empty {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("./assets/images/tile_background.png");
+}
+
+.empty::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.8;
+}
+
+.empty h2 {
+  z-index: 1;
+  color: #fff;
+}
+
+.empty svg {
+  color: #fff;
+}
+
+.empty a {
+  z-index: 1;
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  text-decoration: none;
+  gap: 8px;
+  background: hsla(333, 100%, 53%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(333, 100%, 53%, 1) 0%,
+    hsla(33, 94%, 57%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF0F7B", endColorstr="#F89B29", GradientType=1 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.empty a:hover svg {
+  transition: transform 0.25s;
+}
+
+.empty a:hover svg {
+  transform: translateX(-4px);
+}
+
+.back-btn {
+  display: inline-block;
+  color: #000;
 }
 
 .item-price {
@@ -195,4 +268,3 @@ body {
   background-color: var(--color-accent);
   color: #fff;
 }
-
