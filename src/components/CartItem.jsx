@@ -1,11 +1,16 @@
 import { useOutletContext } from "react-router";
+import Icon from "@mdi/react";
+import { mdiDeleteOutline } from "@mdi/js";
 
 function CartItem({ item }) {
   const { updateCart } = useOutletContext();
 
-  function handleChange(e) {
-    const value = Number(e.target.value);
-    updateCart(item.id, value);
+  function handleIncrease() {
+    updateCart(item.id, item.count + 1);
+  }
+
+  function handleDecrease() {
+    updateCart(item.id, item.count - 1);
   }
 
   return (
@@ -15,12 +20,18 @@ function CartItem({ item }) {
       </div>
       <div className="item-info">
         <h3>{item.title}</h3>
-        <input
-          type="number"
-          value={item.count}
-          min="0"
-          onChange={handleChange}
-        />
+        <div className="quantity">
+          <button
+            className={`qty-btn ${item.count === 1 ? "del-btn" : ""}`}
+            onClick={handleDecrease}
+          >
+            {item.count !== 1 ? "-" : <Icon path={mdiDeleteOutline} size={1} />}
+          </button>
+          {item.count}
+          <button className="qty-btn" onClick={handleIncrease}>
+            +
+          </button>
+        </div>
       </div>
       <p className="item-price">${item.price}</p>
     </div>

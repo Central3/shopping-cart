@@ -40,6 +40,7 @@ body {
   margin: 0;
   justify-content: center;
   gap: 2rem;
+  position: relative;
 }
 
 .nav-item a {
@@ -58,7 +59,8 @@ body {
 }
 
 .nav-cart {
-  position: relative;
+  position: absolute;
+  right: 14px;
 }
 
 .counter-badge {
@@ -266,5 +268,30 @@ body {
   padding: 8px;
   border-radius: 24px;
   background-color: var(--color-accent);
+  color: #fff;
+}
+
+.quantity {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.qty-btn {
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.del-btn {
+  background-color: #cc3333;
   color: #fff;
 }
