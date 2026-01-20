@@ -24,6 +24,7 @@ body {
   font-family: "Roboto", sans-serif;
   /* 4. Add accessible line-height */
   line-height: 1.5;
+  color: #36454f;
 }
 
 :root {
@@ -81,11 +82,55 @@ body {
 
 #content-display {
   min-height: 100vh;
-  margin-top: 16px;
-  padding: 1.5rem;
+}
+
+/* home page */
+.main-container {
+  display: flex;
+  position: relative;
+  height: 100vh;
+}
+
+.img-wrapper {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.img-wrapper img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.shop-btn {
+  position: absolute;
+  text-decoration: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-bg);
+  color: var(--color-accent);
+  padding: 8px 16px;
+  display: flex;
+  gap: 4px;
+  font-size: 1.2rem;
+  align-items: center;
+  border-radius: 24px;
+}
+
+.arrow-right {
+  transition: transform 0.25s;
+}
+
+.shop-btn:hover .arrow-right {
+  transform: translateX(4px);
 }
 
 /* cards */
+.shop {
+  padding: 1.5rem;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -124,7 +169,7 @@ body {
 .add-cart {
   border: none;
   font-size: 1.1rem;
-  padding: 8px;
+  padding: 8px 24px;
   border-radius: 24px;
   margin-top: 8px;
   cursor: pointer;
@@ -134,7 +179,7 @@ body {
 
 .added {
   margin-top: 8px;
-  padding: 8px;
+  padding: 8px 24px;
   background-color: #03c03c;
   color: #fff;
   display: inline-block;
@@ -146,6 +191,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+  padding: 1.5rem;
 }
 
 .cart-items {
@@ -219,12 +265,6 @@ body {
   );
 
   background: -moz-linear-gradient(
-    90deg,
-    hsla(333, 100%, 53%, 1) 0%,
-    hsla(33, 94%, 57%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
     90deg,
     hsla(333, 100%, 53%, 1) 0%,
     hsla(33, 94%, 57%, 1) 100%

@@ -5,7 +5,7 @@ function Shop() {
   const { data } = useOutletContext();
 
   return (
-    <>
+    <div className="shop">
       <h1>Shop</h1>
       <div className="cards">
         {data &&
@@ -13,7 +13,7 @@ function Shop() {
             return <Card key={item.id} data={item} />;
           })}
       </div>
-    </>
+    </div>
   );
 }
 
