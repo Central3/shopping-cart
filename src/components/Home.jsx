@@ -9,7 +9,7 @@ function Home() {
     <div className="home">
       <div className="main-container">
         <div className="img-wrapper">
-          <img src={image1} />
+          <img src={image1} alt="" />
         </div>
         <div className="img-wrapper">
           <img src={image2} alt="" />
