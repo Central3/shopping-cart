@@ -1,25 +1,29 @@
 import { useOutletContext } from "react-router";
 
-function Card({ data }) {
+function Card({ product }) {
   const { handleAddCart, cart } = useOutletContext();
 
-  const inCart = cart.find((item) => item.id === data.id);
+  const inCart = cart.find((item) => item.id === product.id);
+  const altText = `${product.title} product image`;
 
   return (
-    <div className="card">
+    <div className="card" data-testid="product">
       <div className="image-deck">
-        <img src={data.image} alt="" />
+        <img src={product.image} alt={altText} />
       </div>
       <div className="item-info">
-        <p className="item-title">{data.title}</p>
+        <h2 className="item-title">{product.title}</h2>
         <p>
-          ⭐{data.rating.rate}({data.rating.count})
+          ⭐{product.rating.rate}({product.rating.count})
         </p>
-        <p>${data.price}</p>
+        <p>${product.price}</p>
         {inCart ? (
-          <div className="added">Added</div>
+          <button className="added">Added</button>
         ) : (
-          <button onClick={() => handleAddCart(data, 1)} className="add-cart">
+          <button
+            onClick={() => handleAddCart(product, 1)}
+            className="add-cart"
+          >
             Add to cart
           </button>
         )}

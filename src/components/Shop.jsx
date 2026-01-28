@@ -9,8 +9,8 @@ function Shop() {
       <h1>Shop</h1>
       <div className="cards">
         {data &&
-          data.map((item) => {
-            return <Card key={item.id} data={item} />;
+          data.map((product) => {
+            return <Card key={product.id} product={product} />;
           })}
       </div>
     </div>

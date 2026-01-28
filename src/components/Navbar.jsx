@@ -25,7 +25,9 @@ function Navbar({ cart }) {
             )}
           </Link>
           {cart.length > 0 ? (
-            <span className="counter-badge">{cartItemsCount}</span>
+            <span className="counter-badge" data-testid="badge">
+              {cartItemsCount}
+            </span>
           ) : (
             ""
           )}
