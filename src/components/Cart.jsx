@@ -12,6 +12,7 @@ function Cart() {
   );
 
   const totalItems = cart.reduce((total, item) => total + item.count, 0);
+  const cartItemsCount = cart.reduce((sum, item) => sum + item.count, 0);
 
   return (
     <>
@@ -33,7 +34,7 @@ function Cart() {
           </div>
           <div className="checkout">
             <p>
-              Subtotal ({totalItems} {cart.length > 1 ? "items" : "item"}): $
+              Subtotal ({totalItems} {cartItemsCount > 1 ? "items" : "item"}): $
               {totalPrice.toFixed(2)}
             </p>
             <button className="checkout-btn">Checkout</button>

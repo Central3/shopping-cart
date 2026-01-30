@@ -17,7 +17,7 @@ function Navbar({ cart }) {
         </li>
         <div className="spacer"></div>
         <li className="nav-item nav-cart">
-          <Link to="cart">
+          <Link to="cart" data-testid="cart-link">
             {cart.length < 1 ? (
               <Icon path={mdiCartOutline} size={1} />
             ) : (
