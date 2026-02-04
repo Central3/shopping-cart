@@ -11,7 +11,7 @@ describe("Home Component", () => {
       data: [],
     });
     const router = createMemoryRouter(testRoutes, {
-      initialEntries: ["/home"],
+      initialEntries: ["/"],
     });
     const { container } = render(<RouterProvider router={router} />);
     expect(container).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe("Home Component", () => {
     const testRoutes = [...routes];
     testRoutes[0].loader = () => [];
     const router = createMemoryRouter(testRoutes, {
-      initialEntries: ["/home"],
+      initialEntries: ["/"],
     });
 
     render(<RouterProvider router={router} />);
@@ -36,7 +36,7 @@ describe("Home Component", () => {
       data: [],
     });
     const router = createMemoryRouter(testRoutes, {
-      initialEntries: ["/home"],
+      initialEntries: ["/"],
     });
 
     render(<RouterProvider router={router} />);

@@ -10,7 +10,7 @@ function Navbar({ cart }) {
       <ul className="nav-items">
         <div className="spacer"></div>
         <li className="nav-item">
-          <Link to="home">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className="nav-item">
           <Link to="shop">Shop</Link>
