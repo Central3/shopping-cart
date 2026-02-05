@@ -2,11 +2,13 @@ import { describe, expect, it } from "vitest";
 import routes from "./routes";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import { render, screen } from "@testing-library/react";
+import findRouteById from "../utils/test-utils";
 
 describe("Error page", () => {
   it("renders API error message when loader fails", async () => {
     const testRoutes = [...routes];
-    testRoutes[0].loader = () => {
+    const targetRoute = findRouteById(testRoutes, "shop-data");
+    targetRoute.loader = () => {
       throw new Error("Failed to fetch products");
     };
     const router = createMemoryRouter(testRoutes, {

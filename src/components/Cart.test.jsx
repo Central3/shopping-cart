@@ -3,6 +3,7 @@ import routes from "./routes";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import findRouteById from "../utils/test-utils";
 
 const mockedProducts = [
   {
@@ -37,7 +38,8 @@ const mockedProducts = [
 describe("Cart component", () => {
   it("shows empty cart", async () => {
     const testRoutes = [...routes];
-    testRoutes[0].loader = () => ({ data: [] });
+    const targetRoute = findRouteById(testRoutes, "shop-data");
+    targetRoute.loader = () => ({ data: [] });
     const router = createMemoryRouter(testRoutes, {
       initialEntries: ["/cart"],
     });
@@ -55,7 +57,8 @@ describe("Cart component", () => {
   it("shows cart items added from Shop", async () => {
     const user = userEvent.setup();
     const testRoutes = [...routes];
-    testRoutes[0].loader = () => ({ data: mockedProducts });
+    const targetRoute = findRouteById(testRoutes, "shop-data");
+    targetRoute.loader = () => ({ data: mockedProducts });
     const router = createMemoryRouter(testRoutes, {
       initialEntries: ["/shop"],
     });
@@ -87,7 +90,8 @@ describe("Cart component", () => {
   it("correctly updates subtotal when quantities change", async () => {
     const user = userEvent.setup();
     const testRoutes = [...routes];
-    testRoutes[0].loader = () => ({ data: [mockedProducts[0]] });
+    const targetRoute = findRouteById(testRoutes, "shop-data");
+    targetRoute.loader = () => ({ data: [mockedProducts[0]] });
     const router = createMemoryRouter(testRoutes, {
       initialEntries: ["/shop"],
     });

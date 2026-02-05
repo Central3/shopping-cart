@@ -7,6 +7,7 @@ import ErrorPage from "./ErrorPage.jsx";
 
 const routes = [
   {
+    id: "shop-data",
     path: "/",
     loader: shoppingItems,
     element: <App />,
