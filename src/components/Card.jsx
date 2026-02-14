@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router";
 
 function Card({ product }) {
-  const { handleAddCart, cart } = useOutletContext();
+  const { updateCartItem, cart } = useOutletContext();
 
   const inCart = cart.find((item) => item.id === product.id);
   const altText = `${product.title} product image`;
@@ -21,7 +21,7 @@ function Card({ product }) {
           <button className="added">Added</button>
         ) : (
           <button
-            onClick={() => handleAddCart(product, 1)}
+            onClick={() => updateCartItem(product, 1)}
             className="add-cart"
           >
             Add to cart

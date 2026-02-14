@@ -3,14 +3,14 @@ import Icon from "@mdi/react";
 import { mdiDeleteOutline } from "@mdi/js";
 
 function CartItem({ item }) {
-  const { updateCart } = useOutletContext();
+  const { updateCartItem } = useOutletContext();
 
   function handleIncrease() {
-    updateCart(item.id, item.count + 1);
+    updateCartItem(item, 1);
   }
 
   function handleDecrease() {
-    updateCart(item.id, item.count - 1);
+    updateCartItem(item, -1);
   }
 
   return (
